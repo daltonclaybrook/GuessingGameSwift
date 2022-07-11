@@ -1,0 +1,577 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		753761CB287BAD820049F39C /* GuessingGameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753761CA287BAD820049F39C /* GuessingGameApp.swift */; };
+		753761CD287BAD820049F39C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753761CC287BAD820049F39C /* ContentView.swift */; };
+		753761CF287BAD830049F39C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 753761CE287BAD830049F39C /* Assets.xcassets */; };
+		753761D2287BAD830049F39C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 753761D1287BAD830049F39C /* Preview Assets.xcassets */; };
+		753761EE287CA45D0049F39C /* web3.swift in Frameworks */ = {isa = PBXBuildFile; productRef = 753761ED287CA45D0049F39C /* web3.swift */; };
+		753761F1287CA67D0049F39C /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 753761F0287CA67D0049F39C /* ComposableArchitecture */; };
+		753761F5287CB0540049F39C /* KeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753761F3287CB0540049F39C /* KeyStore.swift */; };
+		753761F6287CB0540049F39C /* WalletUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753761F4287CB0540049F39C /* WalletUtility.swift */; };
+		753761F9287CB0B90049F39C /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 753761F8287CB0B90049F39C /* KeychainAccess */; };
+		753761FC287CB1A80049F39C /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753761FB287CB1A80049F39C /* WalletView.swift */; };
+		753761FE287CB1AF0049F39C /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753761FD287CB1AF0049F39C /* GameView.swift */; };
+		75376201287CB2A40049F39C /* WalletViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376200287CB2A40049F39C /* WalletViewState.swift */; };
+		75376203287CB3620049F39C /* ReceiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376202287CB3620049F39C /* ReceiveView.swift */; };
+		75376205287CB37A0049F39C /* SendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376204287CB37A0049F39C /* SendView.swift */; };
+		75376208287CB40F0049F39C /* TokenClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376207287CB40F0049F39C /* TokenClient.swift */; };
+		7537620A287CB50C0049F39C /* Wei.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376209287CB50C0049F39C /* Wei.swift */; };
+		7537620C287CB5320049F39C /* CurrencyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537620B287CB5320049F39C /* CurrencyType.swift */; };
+		7537620E287CB5C70049F39C /* SendViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537620D287CB5C70049F39C /* SendViewState.swift */; };
+		75376210287CB5FD0049F39C /* ConfirmationViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537620F287CB5FD0049F39C /* ConfirmationViewState.swift */; };
+		75376212287CB6220049F39C /* GasOracleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376211287CB6220049F39C /* GasOracleResponse.swift */; };
+		75376214287CB63B0049F39C /* ExchangeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376213287CB63B0049F39C /* ExchangeAPI.swift */; };
+		75376218287CB66D0049F39C /* Blockies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376216287CB66D0049F39C /* Blockies.swift */; };
+		75376219287CB66D0049F39C /* Color+HSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376217287CB66D0049F39C /* Color+HSL.swift */; };
+		7537621B287CB6870049F39C /* EtherscanAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537621A287CB6870049F39C /* EtherscanAPI.swift */; };
+		7537621F287CB7AE0049F39C /* Future+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537621D287CB7AE0049F39C /* Future+Additions.swift */; };
+		75376220287CB7AE0049F39C /* BigInt+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537621E287CB7AE0049F39C /* BigInt+Additions.swift */; };
+		75376222287CB9350049F39C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376221287CB9350049F39C /* RoundedButton.swift */; };
+		75376227287CB9BC0049F39C /* QRCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376224287CB9BC0049F39C /* QRCameraView.swift */; };
+		75376228287CB9BC0049F39C /* QRCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376225287CB9BC0049F39C /* QRCode.swift */; };
+		75376229287CB9BC0049F39C /* QRCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376226287CB9BC0049F39C /* QRCameraViewController.swift */; };
+		7537622C287CBA000049F39C /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537622B287CB9FF0049F39C /* ConfirmationView.swift */; };
+		7537622E287CBAAE0049F39C /* SendToAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537622D287CBAAE0049F39C /* SendToAddressView.swift */; };
+		75376230287CBBE40049F39C /* Sheet+TCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537622F287CBBE40049F39C /* Sheet+TCA.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		753761C7287BAD820049F39C /* GuessingGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessingGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		753761CA287BAD820049F39C /* GuessingGameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessingGameApp.swift; sourceTree = "<group>"; };
+		753761CC287BAD820049F39C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		753761CE287BAD830049F39C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		753761D1287BAD830049F39C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		753761DB287BB26D0049F39C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		753761F3287CB0540049F39C /* KeyStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyStore.swift; sourceTree = "<group>"; };
+		753761F4287CB0540049F39C /* WalletUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletUtility.swift; sourceTree = "<group>"; };
+		753761FB287CB1A80049F39C /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
+		753761FD287CB1AF0049F39C /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		75376200287CB2A40049F39C /* WalletViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletViewState.swift; sourceTree = "<group>"; };
+		75376202287CB3620049F39C /* ReceiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveView.swift; sourceTree = "<group>"; };
+		75376204287CB37A0049F39C /* SendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendView.swift; sourceTree = "<group>"; };
+		75376207287CB40F0049F39C /* TokenClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenClient.swift; sourceTree = "<group>"; };
+		75376209287CB50C0049F39C /* Wei.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wei.swift; sourceTree = "<group>"; };
+		7537620B287CB5320049F39C /* CurrencyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyType.swift; sourceTree = "<group>"; };
+		7537620D287CB5C70049F39C /* SendViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendViewState.swift; sourceTree = "<group>"; };
+		7537620F287CB5FD0049F39C /* ConfirmationViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewState.swift; sourceTree = "<group>"; };
+		75376211287CB6220049F39C /* GasOracleResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasOracleResponse.swift; sourceTree = "<group>"; };
+		75376213287CB63B0049F39C /* ExchangeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeAPI.swift; sourceTree = "<group>"; };
+		75376216287CB66D0049F39C /* Blockies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Blockies.swift; sourceTree = "<group>"; };
+		75376217287CB66D0049F39C /* Color+HSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+HSL.swift"; sourceTree = "<group>"; };
+		7537621A287CB6870049F39C /* EtherscanAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EtherscanAPI.swift; sourceTree = "<group>"; };
+		7537621D287CB7AE0049F39C /* Future+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Future+Additions.swift"; sourceTree = "<group>"; };
+		7537621E287CB7AE0049F39C /* BigInt+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BigInt+Additions.swift"; sourceTree = "<group>"; };
+		75376221287CB9350049F39C /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		75376224287CB9BC0049F39C /* QRCameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCameraView.swift; sourceTree = "<group>"; };
+		75376225287CB9BC0049F39C /* QRCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.swift; sourceTree = "<group>"; };
+		75376226287CB9BC0049F39C /* QRCameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCameraViewController.swift; sourceTree = "<group>"; };
+		7537622B287CB9FF0049F39C /* ConfirmationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
+		7537622D287CBAAE0049F39C /* SendToAddressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendToAddressView.swift; sourceTree = "<group>"; };
+		7537622F287CBBE40049F39C /* Sheet+TCA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sheet+TCA.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		753761C4287BAD820049F39C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				753761F1287CA67D0049F39C /* ComposableArchitecture in Frameworks */,
+				753761EE287CA45D0049F39C /* web3.swift in Frameworks */,
+				753761F9287CB0B90049F39C /* KeychainAccess in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		753761BE287BAD820049F39C = {
+			isa = PBXGroup;
+			children = (
+				753761C9287BAD820049F39C /* GuessingGame */,
+				753761C8287BAD820049F39C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		753761C8287BAD820049F39C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				753761C7287BAD820049F39C /* GuessingGame.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		753761C9287BAD820049F39C /* GuessingGame */ = {
+			isa = PBXGroup;
+			children = (
+				7537622A287CB9F20049F39C /* SendToken */,
+				75376223287CB9BC0049F39C /* QRCode */,
+				7537621C287CB79E0049F39C /* Extensions */,
+				75376215287CB6620049F39C /* Blockies */,
+				75376206287CB3FB0049F39C /* Helpers */,
+				753761FF287CB1B60049F39C /* SupportingFiles */,
+				753761FA287CB1990049F39C /* Game */,
+				753761F2287CB0420049F39C /* Wallet */,
+				753761D0287BAD830049F39C /* Preview Content */,
+			);
+			path = GuessingGame;
+			sourceTree = "<group>";
+		};
+		753761D0287BAD830049F39C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				753761D1287BAD830049F39C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		753761F2287CB0420049F39C /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				753761F3287CB0540049F39C /* KeyStore.swift */,
+				753761F4287CB0540049F39C /* WalletUtility.swift */,
+				753761FB287CB1A80049F39C /* WalletView.swift */,
+				75376200287CB2A40049F39C /* WalletViewState.swift */,
+				75376202287CB3620049F39C /* ReceiveView.swift */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		753761FA287CB1990049F39C /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				753761FD287CB1AF0049F39C /* GameView.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		753761FF287CB1B60049F39C /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				753761DB287BB26D0049F39C /* Info.plist */,
+				753761CA287BAD820049F39C /* GuessingGameApp.swift */,
+				753761CC287BAD820049F39C /* ContentView.swift */,
+				753761CE287BAD830049F39C /* Assets.xcassets */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		75376206287CB3FB0049F39C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				75376221287CB9350049F39C /* RoundedButton.swift */,
+				7537621A287CB6870049F39C /* EtherscanAPI.swift */,
+				75376213287CB63B0049F39C /* ExchangeAPI.swift */,
+				75376211287CB6220049F39C /* GasOracleResponse.swift */,
+				7537620B287CB5320049F39C /* CurrencyType.swift */,
+				75376209287CB50C0049F39C /* Wei.swift */,
+				75376207287CB40F0049F39C /* TokenClient.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		75376215287CB6620049F39C /* Blockies */ = {
+			isa = PBXGroup;
+			children = (
+				75376216287CB66D0049F39C /* Blockies.swift */,
+				75376217287CB66D0049F39C /* Color+HSL.swift */,
+			);
+			path = Blockies;
+			sourceTree = "<group>";
+		};
+		7537621C287CB79E0049F39C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7537622F287CBBE40049F39C /* Sheet+TCA.swift */,
+				7537621E287CB7AE0049F39C /* BigInt+Additions.swift */,
+				7537621D287CB7AE0049F39C /* Future+Additions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		75376223287CB9BC0049F39C /* QRCode */ = {
+			isa = PBXGroup;
+			children = (
+				75376224287CB9BC0049F39C /* QRCameraView.swift */,
+				75376225287CB9BC0049F39C /* QRCode.swift */,
+				75376226287CB9BC0049F39C /* QRCameraViewController.swift */,
+			);
+			path = QRCode;
+			sourceTree = "<group>";
+		};
+		7537622A287CB9F20049F39C /* SendToken */ = {
+			isa = PBXGroup;
+			children = (
+				7537622D287CBAAE0049F39C /* SendToAddressView.swift */,
+				75376204287CB37A0049F39C /* SendView.swift */,
+				7537620D287CB5C70049F39C /* SendViewState.swift */,
+				7537620F287CB5FD0049F39C /* ConfirmationViewState.swift */,
+				7537622B287CB9FF0049F39C /* ConfirmationView.swift */,
+			);
+			path = SendToken;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		753761C6287BAD820049F39C /* GuessingGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 753761D5287BAD830049F39C /* Build configuration list for PBXNativeTarget "GuessingGame" */;
+			buildPhases = (
+				753761C3287BAD820049F39C /* Sources */,
+				753761C4287BAD820049F39C /* Frameworks */,
+				753761C5287BAD820049F39C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GuessingGame;
+			packageProductDependencies = (
+				753761ED287CA45D0049F39C /* web3.swift */,
+				753761F0287CA67D0049F39C /* ComposableArchitecture */,
+				753761F8287CB0B90049F39C /* KeychainAccess */,
+			);
+			productName = GuessingGame;
+			productReference = 753761C7287BAD820049F39C /* GuessingGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		753761BF287BAD820049F39C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					753761C6287BAD820049F39C = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 753761C2287BAD820049F39C /* Build configuration list for PBXProject "GuessingGame" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 753761BE287BAD820049F39C;
+			packageReferences = (
+				753761EC287CA45D0049F39C /* XCRemoteSwiftPackageReference "web3" */,
+				753761EF287CA67D0049F39C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				753761F7287CB0B90049F39C /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+			);
+			productRefGroup = 753761C8287BAD820049F39C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				753761C6287BAD820049F39C /* GuessingGame */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		753761C5287BAD820049F39C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				753761D2287BAD830049F39C /* Preview Assets.xcassets in Resources */,
+				753761CF287BAD830049F39C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		753761C3287BAD820049F39C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				753761CD287BAD820049F39C /* ContentView.swift in Sources */,
+				7537622C287CBA000049F39C /* ConfirmationView.swift in Sources */,
+				75376230287CBBE40049F39C /* Sheet+TCA.swift in Sources */,
+				753761FC287CB1A80049F39C /* WalletView.swift in Sources */,
+				75376218287CB66D0049F39C /* Blockies.swift in Sources */,
+				7537621B287CB6870049F39C /* EtherscanAPI.swift in Sources */,
+				75376220287CB7AE0049F39C /* BigInt+Additions.swift in Sources */,
+				75376228287CB9BC0049F39C /* QRCode.swift in Sources */,
+				7537622E287CBAAE0049F39C /* SendToAddressView.swift in Sources */,
+				75376227287CB9BC0049F39C /* QRCameraView.swift in Sources */,
+				75376205287CB37A0049F39C /* SendView.swift in Sources */,
+				75376203287CB3620049F39C /* ReceiveView.swift in Sources */,
+				7537621F287CB7AE0049F39C /* Future+Additions.swift in Sources */,
+				75376219287CB66D0049F39C /* Color+HSL.swift in Sources */,
+				753761F5287CB0540049F39C /* KeyStore.swift in Sources */,
+				7537620E287CB5C70049F39C /* SendViewState.swift in Sources */,
+				75376229287CB9BC0049F39C /* QRCameraViewController.swift in Sources */,
+				753761CB287BAD820049F39C /* GuessingGameApp.swift in Sources */,
+				75376210287CB5FD0049F39C /* ConfirmationViewState.swift in Sources */,
+				75376208287CB40F0049F39C /* TokenClient.swift in Sources */,
+				75376214287CB63B0049F39C /* ExchangeAPI.swift in Sources */,
+				7537620A287CB50C0049F39C /* Wei.swift in Sources */,
+				753761FE287CB1AF0049F39C /* GameView.swift in Sources */,
+				75376222287CB9350049F39C /* RoundedButton.swift in Sources */,
+				75376201287CB2A40049F39C /* WalletViewState.swift in Sources */,
+				75376212287CB6220049F39C /* GasOracleResponse.swift in Sources */,
+				7537620C287CB5320049F39C /* CurrencyType.swift in Sources */,
+				753761F6287CB0540049F39C /* WalletUtility.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		753761D3287BAD830049F39C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		753761D4287BAD830049F39C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		753761D6287BAD830049F39C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"GuessingGame/Preview Content\"";
+				DEVELOPMENT_TEAM = ELT5AES94A;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GuessingGame/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daltonclaybrook.GuessingGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		753761D7287BAD830049F39C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"GuessingGame/Preview Content\"";
+				DEVELOPMENT_TEAM = ELT5AES94A;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GuessingGame/SupportingFiles/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.daltonclaybrook.GuessingGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		753761C2287BAD820049F39C /* Build configuration list for PBXProject "GuessingGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				753761D3287BAD830049F39C /* Debug */,
+				753761D4287BAD830049F39C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		753761D5287BAD830049F39C /* Build configuration list for PBXNativeTarget "GuessingGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				753761D6287BAD830049F39C /* Debug */,
+				753761D7287BAD830049F39C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		753761EC287CA45D0049F39C /* XCRemoteSwiftPackageReference "web3" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/argentlabs/web3.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+		753761EF287CA67D0049F39C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.38.2;
+			};
+		};
+		753761F7287CB0B90049F39C /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		753761ED287CA45D0049F39C /* web3.swift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 753761EC287CA45D0049F39C /* XCRemoteSwiftPackageReference "web3" */;
+			productName = web3.swift;
+		};
+		753761F0287CA67D0049F39C /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 753761EF287CA67D0049F39C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		753761F8287CB0B90049F39C /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 753761F7287CB0B90049F39C /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 753761BF287BAD820049F39C /* Project object */;
+}
