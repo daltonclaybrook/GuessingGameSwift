@@ -6,8 +6,8 @@ import web3
 typealias TxHash = String
 
 final class TokenClient {
-	let tokenContractAddress = EthereumAddress("0xA12e5242F9E8BA38eb738a4F234077B0C08E0D7a")
-	let gameContractAddress = EthereumAddress("0xcC88ffDfb45677D950f35c28BDEa817C2eC3049b")
+	let tokenContractAddress = EthereumAddress("0xc9B0c78015A7Cc8E21BfADAf1d83000EcB89c975")
+	let gameContractAddress = EthereumAddress("0x2Fdf480E99e8B3b696f15Eb6028a5dD705FaE41B")
 
 	var userAddress: EthereumAddress {
 		account.address
