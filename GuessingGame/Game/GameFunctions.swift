@@ -12,6 +12,34 @@ import web3
 /// A namespace to use for accessing game functions
 enum GameFunctions {}
 
+// MARK: - Properties
+
+extension GameFunctions {
+	/// Get the next asker
+	struct NextAsker: ABIFunction {
+		static let name = "nextAsker"
+
+		var gasPrice: BigUInt?
+		var gasLimit: BigUInt?
+		var contract: EthereumAddress
+		var from: EthereumAddress?
+
+		func encode(to encoder: ABIFunctionEncoder) throws {}
+	}
+
+	/// Get the date when the next asker times out and anyone can submit a question
+	struct NextAskerTimeoutDate {
+		static let name = "nextAskerTimeoutDate"
+
+		var gasPrice: BigUInt?
+		var gasLimit: BigUInt?
+		var contract: EthereumAddress
+		var from: EthereumAddress?
+
+		func encode(to encoder: ABIFunctionEncoder) throws {}
+	}
+}
+
 // MARK: - Asker functions
 
 extension GameFunctions {
