@@ -40,6 +40,7 @@
 		7537622C287CBA000049F39C /* ConfirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537622B287CB9FF0049F39C /* ConfirmationView.swift */; };
 		7537622E287CBAAE0049F39C /* SendToAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537622D287CBAAE0049F39C /* SendToAddressView.swift */; };
 		75376230287CBBE40049F39C /* Sheet+TCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537622F287CBBE40049F39C /* Sheet+TCA.swift */; };
+		75376232287CC5380049F39C /* GameFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376231287CC5380049F39C /* GameFunctions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +76,7 @@
 		7537622B287CB9FF0049F39C /* ConfirmationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationView.swift; sourceTree = "<group>"; };
 		7537622D287CBAAE0049F39C /* SendToAddressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendToAddressView.swift; sourceTree = "<group>"; };
 		7537622F287CBBE40049F39C /* Sheet+TCA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sheet+TCA.swift"; sourceTree = "<group>"; };
+		75376231287CC5380049F39C /* GameFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFunctions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				753761FD287CB1AF0049F39C /* GameView.swift */,
+				75376231287CC5380049F39C /* GameFunctions.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				75376212287CB6220049F39C /* GasOracleResponse.swift in Sources */,
 				7537620C287CB5320049F39C /* CurrencyType.swift in Sources */,
 				753761F6287CB0540049F39C /* WalletUtility.swift in Sources */,
+				75376232287CC5380049F39C /* GameFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
