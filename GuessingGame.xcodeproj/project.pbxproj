@@ -43,6 +43,8 @@
 		75376232287CC5380049F39C /* GameFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376231287CC5380049F39C /* GameFunctions.swift */; };
 		75376234287CDB2C0049F39C /* GameViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376233287CDB2C0049F39C /* GameViewState.swift */; };
 		75376237287CDB750049F39C /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376236287CDB750049F39C /* AppState.swift */; };
+		75376239287CE3EB0049F39C /* GameClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376238287CE3EB0049F39C /* GameClient.swift */; };
+		7537623B287CE42F0049F39C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537623A287CE42F0049F39C /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +83,8 @@
 		75376231287CC5380049F39C /* GameFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFunctions.swift; sourceTree = "<group>"; };
 		75376233287CDB2C0049F39C /* GameViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewState.swift; sourceTree = "<group>"; };
 		75376236287CDB750049F39C /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		75376238287CE3EB0049F39C /* GameClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameClient.swift; sourceTree = "<group>"; };
+		7537623A287CE42F0049F39C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +160,7 @@
 				753761FD287CB1AF0049F39C /* GameView.swift */,
 				75376233287CDB2C0049F39C /* GameViewState.swift */,
 				75376231287CC5380049F39C /* GameFunctions.swift */,
+				75376238287CE3EB0049F39C /* GameClient.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 				7537620B287CB5320049F39C /* CurrencyType.swift */,
 				75376209287CB50C0049F39C /* Wei.swift */,
 				75376207287CB40F0049F39C /* TokenClient.swift */,
+				7537623A287CE42F0049F39C /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -318,6 +324,7 @@
 				753761CD287BAD820049F39C /* ContentView.swift in Sources */,
 				7537622C287CBA000049F39C /* ConfirmationView.swift in Sources */,
 				75376230287CBBE40049F39C /* Sheet+TCA.swift in Sources */,
+				75376239287CE3EB0049F39C /* GameClient.swift in Sources */,
 				753761FC287CB1A80049F39C /* WalletView.swift in Sources */,
 				75376218287CB66D0049F39C /* Blockies.swift in Sources */,
 				7537621B287CB6870049F39C /* EtherscanAPI.swift in Sources */,
@@ -336,6 +343,7 @@
 				753761CB287BAD820049F39C /* GuessingGameApp.swift in Sources */,
 				75376210287CB5FD0049F39C /* ConfirmationViewState.swift in Sources */,
 				75376208287CB40F0049F39C /* TokenClient.swift in Sources */,
+				7537623B287CE42F0049F39C /* Constants.swift in Sources */,
 				75376214287CB63B0049F39C /* ExchangeAPI.swift in Sources */,
 				7537620A287CB50C0049F39C /* Wei.swift in Sources */,
 				753761FE287CB1AF0049F39C /* GameView.swift in Sources */,

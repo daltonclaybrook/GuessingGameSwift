@@ -6,7 +6,6 @@ enum EtherscanAPIError: Error {
 }
 
 final class EtherscanAPI {
-	private let apiKey = "YTYHWFBW7TBYJEDTXV7U78FAW9X8UTR1Y9"
 	private let baseURL = URL(string: "https://api.etherscan.io/api")!
 
 	/// Fetch the "gas oracle" from Etherscan, which includes suggested gas prices
@@ -34,7 +33,7 @@ final class EtherscanAPI {
 			throw EtherscanAPIError.invalidURL
 		}
 		components.queryItems = [
-			URLQueryItem(name: "apikey", value: apiKey),
+			URLQueryItem(name: "apikey", value: Constants.etherscanAPIKey),
 			URLQueryItem(name: "module", value: "gastracker"),
 			URLQueryItem(name: "action", value: "gasoracle")
 		]

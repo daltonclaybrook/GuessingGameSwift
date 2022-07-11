@@ -53,7 +53,7 @@ private let _sendViewReducer = Reducer<SendViewState, SendViewAction, SendViewEn
 			state.confirmation = ConfirmationViewState(
 				fromAddress: environment.client.userAddress.value,
 				toAddress: state.toAddress,
-				contractAddress: environment.client.tokenContractAddress.value,
+				contractAddress: Constants.tokenContractAddress.value,
 				tokenAmountToSend: amount,
 				transactionData: Data()
 			)
