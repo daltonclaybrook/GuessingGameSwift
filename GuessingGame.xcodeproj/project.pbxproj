@@ -41,6 +41,8 @@
 		7537622E287CBAAE0049F39C /* SendToAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537622D287CBAAE0049F39C /* SendToAddressView.swift */; };
 		75376230287CBBE40049F39C /* Sheet+TCA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537622F287CBBE40049F39C /* Sheet+TCA.swift */; };
 		75376232287CC5380049F39C /* GameFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376231287CC5380049F39C /* GameFunctions.swift */; };
+		75376234287CDB2C0049F39C /* GameViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376233287CDB2C0049F39C /* GameViewState.swift */; };
+		75376237287CDB750049F39C /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376236287CDB750049F39C /* AppState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +79,8 @@
 		7537622D287CBAAE0049F39C /* SendToAddressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendToAddressView.swift; sourceTree = "<group>"; };
 		7537622F287CBBE40049F39C /* Sheet+TCA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Sheet+TCA.swift"; sourceTree = "<group>"; };
 		75376231287CC5380049F39C /* GameFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFunctions.swift; sourceTree = "<group>"; };
+		75376233287CDB2C0049F39C /* GameViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewState.swift; sourceTree = "<group>"; };
+		75376236287CDB750049F39C /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 		753761C9287BAD820049F39C /* GuessingGame */ = {
 			isa = PBXGroup;
 			children = (
+				75376235287CDB620049F39C /* App */,
 				7537622A287CB9F20049F39C /* SendToken */,
 				75376223287CB9BC0049F39C /* QRCode */,
 				7537621C287CB79E0049F39C /* Extensions */,
@@ -149,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				753761FD287CB1AF0049F39C /* GameView.swift */,
+				75376233287CDB2C0049F39C /* GameViewState.swift */,
 				75376231287CC5380049F39C /* GameFunctions.swift */,
 			);
 			path = Game;
@@ -158,8 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				753761DB287BB26D0049F39C /* Info.plist */,
-				753761CA287BAD820049F39C /* GuessingGameApp.swift */,
-				753761CC287BAD820049F39C /* ContentView.swift */,
 				753761CE287BAD830049F39C /* Assets.xcassets */,
 			);
 			path = SupportingFiles;
@@ -218,6 +222,16 @@
 				7537622B287CB9FF0049F39C /* ConfirmationView.swift */,
 			);
 			path = SendToken;
+			sourceTree = "<group>";
+		};
+		75376235287CDB620049F39C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				753761CA287BAD820049F39C /* GuessingGameApp.swift */,
+				753761CC287BAD820049F39C /* ContentView.swift */,
+				75376236287CDB750049F39C /* AppState.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +314,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75376234287CDB2C0049F39C /* GameViewState.swift in Sources */,
 				753761CD287BAD820049F39C /* ContentView.swift in Sources */,
 				7537622C287CBA000049F39C /* ConfirmationView.swift in Sources */,
 				75376230287CBBE40049F39C /* Sheet+TCA.swift in Sources */,
@@ -312,6 +327,7 @@
 				75376227287CB9BC0049F39C /* QRCameraView.swift in Sources */,
 				75376205287CB37A0049F39C /* SendView.swift in Sources */,
 				75376203287CB3620049F39C /* ReceiveView.swift in Sources */,
+				75376237287CDB750049F39C /* AppState.swift in Sources */,
 				7537621F287CB7AE0049F39C /* Future+Additions.swift in Sources */,
 				75376219287CB66D0049F39C /* Color+HSL.swift in Sources */,
 				753761F5287CB0540049F39C /* KeyStore.swift in Sources */,

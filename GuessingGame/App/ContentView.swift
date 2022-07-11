@@ -5,17 +5,20 @@
 //  Created by Dalton Claybrook on 7/10/22.
 //
 
+import ComposableArchitecture
 import SwiftUI
 
 struct ContentView: View {
+	let store: Store<AppState, AppAction>
+
     var body: some View {
 		TabView {
-			GameView()
+			GameView(store: store.scope(state: \.gameViewState, action: AppAction.gameViewAction))
 				.tabItem {
 					Image(systemName: "gamecontroller")
 					Text("Game")
 				}
-			WalletView(store: .live)
+			WalletView(store: store.scope(state: \.walletViewState, action: AppAction.walletViewAction))
 				.tabItem {
 					Image(systemName: "creditcard")
 					Text("Wallet")
@@ -26,6 +29,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+		ContentView(store: .live)
     }
 }

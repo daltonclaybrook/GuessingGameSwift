@@ -59,6 +59,20 @@ struct WalletView: View {
 
 struct WalletView_Previews: PreviewProvider {
 	static var previews: some View {
-		WalletView(store: .live)
+		WalletView(
+			store: Store(
+				initialState: WalletViewState(
+					receiveViewState: ReceiveViewState(
+						address: "0xADe61Bc8c716d8244FfBb188d6dD5369C1CbE81D"
+					)
+				),
+				reducer: walletViewReducer,
+				environment: WalletViewEnvironment(
+					client: TokenClient(),
+					sendViewEnvironment: SendViewEnvironment(client: TokenClient()),
+					receiveViewEnvironment: ReceiveViewEnvironment()
+				)
+			)
+		)
 	}
 }

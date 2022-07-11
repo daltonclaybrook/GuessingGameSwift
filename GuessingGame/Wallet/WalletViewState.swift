@@ -39,7 +39,7 @@ struct WalletViewEnvironment {
 
 // MARK: - Reducers
 
-let walletViewReducer = Reducer<WalletViewState, WalletViewAction, WalletViewEnvironment> {
+private let _walletViewReducer = Reducer<WalletViewState, WalletViewAction, WalletViewEnvironment> {
 	state, action, environment -> Effect in
 	struct RefreshBalanceId: Hashable {}
 	let refreshInterval: RunLoop.SchedulerTimeType.Stride = 6.0
@@ -92,8 +92,8 @@ let walletViewReducer = Reducer<WalletViewState, WalletViewAction, WalletViewEnv
 }
 	.binding()
 
-let appReducer: Reducer<WalletViewState, WalletViewAction, WalletViewEnvironment> = Reducer.combine(
-	walletViewReducer,
+let walletViewReducer: Reducer<WalletViewState, WalletViewAction, WalletViewEnvironment> = Reducer.combine(
+	_walletViewReducer,
 	sendViewReducer.optional().pullback(
 		state: \.sendViewState,
 		action: /WalletViewAction.sendViewAction,
@@ -105,25 +105,3 @@ let appReducer: Reducer<WalletViewState, WalletViewAction, WalletViewEnvironment
 		environment: { $0.receiveViewEnvironment }
 	)
 )
-
-// MARK: - Store convenience
-
-extension Store where State == WalletViewState, Action == WalletViewAction {
-	static var live: Store<WalletViewState, WalletViewAction> {
-		let account = try! WalletUtility().loadWalletAccount()
-		let client = TokenClient()
-		return Store(
-			initialState: WalletViewState(
-				receiveViewState: ReceiveViewState(
-					address: account.address.value
-				)
-			),
-			reducer: appReducer,
-			environment: WalletViewEnvironment(
-				client: client,
-				sendViewEnvironment: SendViewEnvironment(client: client),
-				receiveViewEnvironment: ReceiveViewEnvironment()
-			)
-		)
-	}
-}

@@ -14,7 +14,7 @@ struct GuessingGameApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+			ContentView(store: .live)
         }
     }
 }

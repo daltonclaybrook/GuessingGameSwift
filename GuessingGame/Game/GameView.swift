@@ -5,16 +5,27 @@
 //  Created by Dalton Claybrook on 7/11/22.
 //
 
+import ComposableArchitecture
 import SwiftUI
 
 struct GameView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+	let store: Store<GameViewState, GameViewAction>
+
+	var body: some View {
+		VStack(alignment: .leading) {
+			
+		}
+	}
 }
 
 struct GameView_Previews: PreviewProvider {
-    static var previews: some View {
-        GameView()
-    }
+	static var previews: some View {
+		GameView(
+			store: Store(
+				initialState: GameViewState(),
+				reducer: gameViewReducer,
+				environment: GameViewEnvironment()
+			)
+		)
+	}
 }
