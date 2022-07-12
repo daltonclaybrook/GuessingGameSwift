@@ -47,36 +47,10 @@ let gameViewReducer = Reducer<GameViewState, GameViewAction, GameViewEnvironment
 	switch action {
 	case .refreshState:
 		return Future.async {
-			let client = environment.client
-			async let isCurrentQuestionActive = client.isCurrentQuestionActive() //
-			async let currentAsker = client.currentQuestionAsker() //
-			async let canSubmitClue = client.canSubmitNewClue() //
-			async let nextAsker = client.nextAsker //
-			async let nextAskerTimeout = client.nextAskerTimeoutDate //
-			async let prompt = client.currentQuestionPrompt() //
-			async let clues = fetchAllClues(client: client)
-
-			guard
-				let isCurrentQuestionActive = await isCurrentQuestionActive,
-				let currentAsker = await currentAsker,
-				let canSubmitClue = await canSubmitClue,
-				let nextAsker = await nextAsker,
-				let nextAskerTimeout = await nextAskerTimeout,
-				let prompt = await prompt
-			else { return .errorRefreshingState }
-
-			if isCurrentQuestionActive {
-				return .updateGameState(.answeringQuestion(
-					prompt: prompt,
-					asker: currentAsker,
-					clues: await clues,
-					canSubmitClue: canSubmitClue
-				))
-			} else {
-				let asker: Asker = nextAskerTimeout >= Date() ? .specific(nextAsker) : .anyone
-				return .updateGameState(.waitingForQuestion(asker: asker))
-			}
-		}.eraseToEffect()
+			await fetchGameState(client: environment.client)
+		}
+		.receive(on: RunLoop.main)
+		.eraseToEffect()
 
 	case .updateGameState(let gameState):
 		state.gameState = gameState
@@ -103,6 +77,37 @@ extension AlertState where Action == GameViewAction {
 }
 
 // MARK: - Free helper functions
+
+private func fetchGameState(client: GameClient) async -> GameViewAction {
+	async let isCurrentQuestionActive = client.isCurrentQuestionActive() //
+	async let currentAsker = client.currentQuestionAsker() //
+	async let canSubmitClue = client.canSubmitNewClue() //
+	async let nextAsker = client.nextAsker //
+	async let nextAskerTimeout = client.nextAskerTimeoutDate //
+	async let prompt = client.currentQuestionPrompt() //
+	async let clues = fetchAllClues(client: client)
+
+	guard
+		let isCurrentQuestionActive = await isCurrentQuestionActive,
+		let currentAsker = await currentAsker,
+		let canSubmitClue = await canSubmitClue,
+		let nextAsker = await nextAsker,
+		let nextAskerTimeout = await nextAskerTimeout,
+		let prompt = await prompt
+	else { return .errorRefreshingState }
+
+	if isCurrentQuestionActive {
+		return .updateGameState(.answeringQuestion(
+			prompt: prompt,
+			asker: currentAsker,
+			clues: await clues,
+			canSubmitClue: canSubmitClue
+		))
+	} else {
+		let asker: Asker = nextAskerTimeout >= Date() ? .specific(nextAsker) : .anyone
+		return .updateGameState(.waitingForQuestion(asker: asker))
+	}
+}
 
 private func fetchAllClues(client: GameClient) async -> [String] {
 	async let clue1 = client.getClue(index: 0)

@@ -12,8 +12,11 @@ struct GameView: View {
 	let store: Store<GameViewState, GameViewAction>
 
 	var body: some View {
-		VStack(alignment: .leading) {
-			
+		WithViewStore(store) { viewStore in
+			Text("Loading")
+				.onAppear {
+					viewStore.send(.refreshState)
+				}
 		}
 	}
 }
