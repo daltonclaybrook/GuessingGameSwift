@@ -52,7 +52,9 @@ extension Store where State == AppState, Action == AppAction {
 			),
 			reducer: appReducer,
 			environment: AppEnvironment(
-				gameViewEnvironment: GameViewEnvironment(),
+				gameViewEnvironment: GameViewEnvironment(
+					client: GameClient()
+				),
 				walletViewEnvironment: WalletViewEnvironment(
 					client: tokenClient,
 					sendViewEnvironment: SendViewEnvironment(

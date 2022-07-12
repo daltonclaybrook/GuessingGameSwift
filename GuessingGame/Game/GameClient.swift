@@ -56,6 +56,11 @@ final class GameClient {
 		return await call(function: function)
 	}
 
+	func currentQuestionAsker() async -> EthereumAddress? {
+		let function = GameFunctions.CurrentQuestionAsker(contract: Constants.gameContractAddress)
+		return await call(function: function)
+	}
+
 	func currentQuestionPrompt() async -> String? {
 		let function = GameFunctions.CurrentQuestionPrompt(contract: Constants.gameContractAddress)
 		return await call(function: function)

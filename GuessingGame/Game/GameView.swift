@@ -24,7 +24,9 @@ struct GameView_Previews: PreviewProvider {
 			store: Store(
 				initialState: GameViewState(),
 				reducer: gameViewReducer,
-				environment: GameViewEnvironment()
+				environment: GameViewEnvironment(
+					client: GameClient()
+				)
 			)
 		)
 	}

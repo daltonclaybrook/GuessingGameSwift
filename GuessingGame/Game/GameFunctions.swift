@@ -139,6 +139,22 @@ extension GameFunctions {
 		func encode(to encoder: ABIFunctionEncoder) throws {}
 	}
 
+	/// Returns the current question asker
+	///
+	/// ```
+	/// function currentQuestionAsker() public view returns (address)
+	/// ```
+	struct CurrentQuestionAsker: ABIFunction {
+		static let name = "currentQuestionAsker"
+
+		var gasPrice: BigUInt?
+		var gasLimit: BigUInt?
+		var contract: EthereumAddress
+		var from: EthereumAddress?
+
+		func encode(to encoder: ABIFunctionEncoder) throws {}
+	}
+
 	/// Returns the current question prompt
 	///
 	/// ```
