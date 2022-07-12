@@ -9,6 +9,12 @@ import BigInt
 import Foundation
 import web3
 
+protocol UpdatableABIFunction: ABIFunction {
+	var gasPrice: BigUInt? { get set }
+	var gasLimit: BigUInt? { get set }
+	var from: EthereumAddress? { get set }
+}
+
 /// A namespace to use for accessing game functions
 enum GameFunctions {}
 
@@ -16,7 +22,7 @@ enum GameFunctions {}
 
 extension GameFunctions {
 	/// Get the next asker
-	struct NextAsker: ABIFunction {
+	struct NextAsker: UpdatableABIFunction {
 		static let name = "nextAsker"
 
 		var gasPrice: BigUInt?
@@ -28,7 +34,7 @@ extension GameFunctions {
 	}
 
 	/// Get the date when the next asker times out and anyone can submit a question
-	struct NextAskerTimeoutDate: ABIFunction {
+	struct NextAskerTimeoutDate: UpdatableABIFunction {
 		static let name = "nextAskerTimeoutDate"
 
 		var gasPrice: BigUInt?
@@ -48,7 +54,7 @@ extension GameFunctions {
 	/// ```
 	/// function submitQuestion(string calldata _prompt, bytes32 _answerHash) external onlyEligibleSubmitter
 	/// ```
-	struct SubmitQuestion: ABIFunction {
+	struct SubmitQuestion: UpdatableABIFunction {
 		static let name = "submitQuestion"
 
 		var gasPrice: BigUInt?
@@ -62,7 +68,8 @@ extension GameFunctions {
 
 		func encode(to encoder: ABIFunctionEncoder) throws {
 			try encoder.encode(prompt)
-			try encoder.encode(answerHash)
+//			try encoder.encode("0x\(answerHash.toHexString())")
+			try encoder.encode(answerHash, staticSize: 32)
 		}
 	}
 
@@ -71,7 +78,7 @@ extension GameFunctions {
 	/// ```
 	/// function canSubmitNewClue() public view returns (bool)
 	/// ```
-	struct CanSubmitNewClue: ABIFunction {
+	struct CanSubmitNewClue: UpdatableABIFunction {
 		static let name = "canSubmitNewClue"
 
 		var gasPrice: BigUInt?
@@ -87,7 +94,7 @@ extension GameFunctions {
 	/// ```
 	/// function submitClue(string calldata _newClue) external onlyAsker
 	/// ```
-	struct SubmitClue: ABIFunction {
+	struct SubmitClue: UpdatableABIFunction {
 		static let name = "submitClue"
 
 		var gasPrice: BigUInt?
@@ -112,7 +119,7 @@ extension GameFunctions {
 	/// ```
 	/// function isCurrentQuestionActive() public view returns (bool)
 	/// ```
-	struct IsCurrentQuestionActive: ABIFunction {
+	struct IsCurrentQuestionActive: UpdatableABIFunction {
 		static let name = "isCurrentQuestionActive"
 
 		var gasPrice: BigUInt?
@@ -128,7 +135,7 @@ extension GameFunctions {
 	/// ```
 	/// function isCurrentQuestionExpired() public view returns (bool)
 	/// ```
-	struct IsCurrentQuestionExpired: ABIFunction {
+	struct IsCurrentQuestionExpired: UpdatableABIFunction {
 		static let name = "isCurrentQuestionActive"
 
 		var gasPrice: BigUInt?
@@ -144,7 +151,7 @@ extension GameFunctions {
 	/// ```
 	/// function currentQuestionAsker() public view returns (address)
 	/// ```
-	struct CurrentQuestionAsker: ABIFunction {
+	struct CurrentQuestionAsker: UpdatableABIFunction {
 		static let name = "currentQuestionAsker"
 
 		var gasPrice: BigUInt?
@@ -160,7 +167,7 @@ extension GameFunctions {
 	/// ```
 	/// function currentQuestionPrompt() public view returns (string memory)
 	/// ```
-	struct CurrentQuestionPrompt: ABIFunction {
+	struct CurrentQuestionPrompt: UpdatableABIFunction {
 		static let name = "currentQuestionPrompt"
 
 		var gasPrice: BigUInt?
@@ -176,7 +183,7 @@ extension GameFunctions {
 	/// ```
 	/// function getClue(uint8 index) public view returns (string memory)
 	/// ```
-	struct GetClue: ABIFunction {
+	struct GetClue: UpdatableABIFunction {
 		static let name = "getClue"
 
 		var gasPrice: BigUInt?
@@ -197,7 +204,7 @@ extension GameFunctions {
 	/// ```
 	/// function checkAnswer(string calldata _answer) public view returns (bool)
 	/// ```
-	struct CheckAnswer: ABIFunction {
+	struct CheckAnswer: UpdatableABIFunction {
 		static let name = "checkAnswer"
 
 		var gasPrice: BigUInt?
@@ -218,7 +225,7 @@ extension GameFunctions {
 	/// ```
 	/// function submitAnswer(string calldata _answer) external anyoneButAsker
 	/// ```
-	struct SubmitAnswer: ABIFunction {
+	struct SubmitAnswer: UpdatableABIFunction {
 		static let name = "submitAnswer"
 
 		var gasPrice: BigUInt?
@@ -239,7 +246,7 @@ extension GameFunctions {
 	/// ```
 	/// function expireQuestion() external anyoneButAsker
 	/// ```
-	struct ExpireQuestion: ABIFunction {
+	struct ExpireQuestion: UpdatableABIFunction {
 		static let name = "expireQuestion"
 
 		var gasPrice: BigUInt?

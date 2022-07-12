@@ -1,3 +1,4 @@
+import BigInt
 import CryptoSwift
 import Foundation
 import web3
@@ -101,16 +102,31 @@ final class GameClient {
 		}
 	}
 
+	/// This is a temporary hard-coded gas price to use on the Rinkeby network.
+	/// It is 1.5 Gwei.
+	private let rinkebyGasPrice = BigUInt("1500000000")
+
 	@discardableResult
-	private func sendTransaction(function: ABIFunction) async -> TxHash? {
+	private func sendTransaction(function: UpdatableABIFunction) async -> TxHash? {
 		do {
-			let transaction = try function.transaction()
+			var function = function
+			function.from = account.address
+
+			// Update the gas parameters of the transaction
+			let gasTransaction = try function.transaction()
+			let estimatedGas = try await client.eth_estimateGas(gasTransaction)
+			function.gasLimit = estimatedGas / 10 + estimatedGas
+			function.gasPrice = rinkebyGasPrice
+
 			// Best practice is to attempt an `eth_call` first before actually
 			// sending the transaction to maximize the chances for success.
+			let transaction = try function.transaction()
 			let callResponse = try await client.eth_call(transaction)
 			print("Preflight request for function \(type(of: function).name) completed with response: \(callResponse)")
+
+			// Send the transaction for real
 			let txHash = try await client.eth_sendRawTransaction(transaction, withAccount: account)
-			print("Send transaction for \(type(of: function).name), Tx Hash: \(txHash)")
+			print("Sent transaction for \(type(of: function).name), Tx Hash: \(txHash)")
 			return txHash
 		} catch let error {
 			print("Error sending transaction for function \(type(of: function).name) — \(error)")

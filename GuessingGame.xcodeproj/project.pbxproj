@@ -47,6 +47,7 @@
 		7537623B287CE42F0049F39C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537623A287CE42F0049F39C /* Constants.swift */; };
 		7537623D287CEA210049F39C /* ABIResponse+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537623C287CEA210049F39C /* ABIResponse+Additions.swift */; };
 		75376240287CF1750049F39C /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7537623F287CF1750049F39C /* CryptoSwift */; };
+		75376242287D1EC20049F39C /* GasOracleFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376241287D1EC10049F39C /* GasOracleFetching.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		75376238287CE3EB0049F39C /* GameClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameClient.swift; sourceTree = "<group>"; };
 		7537623A287CE42F0049F39C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7537623C287CEA210049F39C /* ABIResponse+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ABIResponse+Additions.swift"; sourceTree = "<group>"; };
+		75376241287D1EC10049F39C /* GasOracleFetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasOracleFetching.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 				75376209287CB50C0049F39C /* Wei.swift */,
 				75376207287CB40F0049F39C /* TokenClient.swift */,
 				7537623A287CE42F0049F39C /* Constants.swift */,
+				75376241287D1EC10049F39C /* GasOracleFetching.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				7537621F287CB7AE0049F39C /* Future+Additions.swift in Sources */,
 				75376219287CB66D0049F39C /* Color+HSL.swift in Sources */,
 				753761F5287CB0540049F39C /* KeyStore.swift in Sources */,
+				75376242287D1EC20049F39C /* GasOracleFetching.swift in Sources */,
 				7537620E287CB5C70049F39C /* SendViewState.swift in Sources */,
 				75376229287CB9BC0049F39C /* QRCameraViewController.swift in Sources */,
 				753761CB287BAD820049F39C /* GuessingGameApp.swift in Sources */,

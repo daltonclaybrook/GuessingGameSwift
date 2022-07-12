@@ -57,9 +57,12 @@ let gameViewReducer = Reducer<GameViewState, GameViewAction, GameViewEnvironment
 		.eraseToEffect()
 
 	case .submitQuestion(let prompt, let answer):
-		// todo: implement
-		print("Submit question: \(prompt), answer: \(answer)")
-		return .none
+		return Future.async {
+			await environment.client.submitQuestion(prompt: prompt, answer: answer)
+			return .refreshState
+		}
+		.receive(on: RunLoop.main)
+		.eraseToEffect()
 
 	case .updateGameState(let gameState, let userIsEligibleToSubmitQuestion):
 		state.gameState = gameState

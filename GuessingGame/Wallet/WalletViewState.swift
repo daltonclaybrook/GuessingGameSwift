@@ -68,7 +68,7 @@ private let _walletViewReducer = Reducer<WalletViewState, WalletViewAction, Wall
 
 	case .updateBalances(let ethBalance, let tokenBalance):
 		state.ethBalanceString = ethBalance?.stringByAddingDecimalAndTrimming() ?? "--"
-		state.tokenBalanceString = tokenBalance?.description ?? "--"
+		state.tokenBalanceString = tokenBalance?.stringByAddingDecimalAndTrimming() ?? "--"
 		return .none
 
 	case .sendToken(let amount, let to):

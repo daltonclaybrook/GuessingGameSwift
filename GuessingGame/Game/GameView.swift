@@ -14,15 +14,29 @@ struct GameView: View {
 
 	var body: some View {
 		WithViewStore(store) { viewStore in
-			switch viewStore.gameState {
-			case .unknown:
-				Text("Loading...").onAppear {
-					viewStore.send(.refreshState)
+			NavigationView {
+				Group {
+					switch viewStore.gameState {
+					case .unknown:
+						Text("Loading...")
+					case .waitingForQuestion(let asker):
+						AskingView(viewStore: viewStore, asker: asker)
+					case .answeringQuestion(let answeringState):
+						AnsweringView(viewStore: viewStore, answeringState: answeringState)
+					}
 				}
-			case .waitingForQuestion(let asker):
-				AskingView(viewStore: viewStore, asker: asker)
-			case .answeringQuestion(let answeringState):
-				AnsweringView(viewStore: viewStore, answeringState: answeringState)
+				.navigationTitle("Guessing Game")
+				.toolbar {
+					Button {
+						viewStore.send(.refreshState)
+					} label: {
+						Image(systemName: "arrow.clockwise")
+					}
+
+				}
+			}
+			.onAppear {
+				viewStore.send(.refreshState)
 			}
 		}
 	}
