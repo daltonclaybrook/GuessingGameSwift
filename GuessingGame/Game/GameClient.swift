@@ -135,10 +135,10 @@ final class GameClient {
 	}
 
 	private func makeAnswerHash(answer: String) -> Data? {
-		guard let answerData = answer.data(using: .utf8) else { return nil }
 		do {
+			let encoded = try ABIEncoder.encode(answer, packed: true).bytes
 			var digest = SHA3(variant: .keccak256)
-			let bytes = try digest.finish(withBytes: answerData.bytes)
+			let bytes = try digest.finish(withBytes: encoded)
 			return Data(bytes)
 		} catch let error {
 			print("Failed to create hash for answer: \(answer), Error: \(error)")

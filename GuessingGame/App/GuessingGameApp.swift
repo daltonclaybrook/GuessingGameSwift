@@ -21,7 +21,10 @@ struct GuessingGameApp: App {
 
 final class AppDelegate: NSObject, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-		WalletUtility().createWalletIfNecessary()
+		let walletUtility = WalletUtility()
+		walletUtility.createWalletIfNecessary()
+		let wallet = try! walletUtility.loadWalletAccount()
+		print("User address: \(wallet.address.value)")
 		return true
 	}
 }
