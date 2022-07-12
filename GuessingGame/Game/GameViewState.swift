@@ -14,26 +14,30 @@ enum Asker: Equatable {
 	case anyone
 }
 
+struct AnsweringState: Equatable {
+	let prompt: String
+	let asker: EthereumAddress
+	let clues: [String]
+	let canSubmitClue: Bool
+}
+
 enum GameState: Equatable {
 	case unknown
-	case waitingForQuestion(asker: Asker)
-	case answeringQuestion(
-		prompt: String,
-		asker: EthereumAddress,
-		clues: [String],
-		canSubmitClue: Bool
-	)
+	case waitingForQuestion(Asker)
+	case answeringQuestion(AnsweringState)
 }
 
 struct GameViewState: Equatable {
 	var gameState: GameState = .unknown
+	var userIsEligibleToSubmitQuestion: Bool = false
 	/// Alert that is presented when non-nil
 	var alert: AlertState<GameViewAction>? = nil
 }
 
 enum GameViewAction: Equatable {
 	case refreshState
-	case updateGameState(GameState)
+	case submitQuestion(prompt: String, answer: String)
+	case updateGameState(GameState, userIsEligibleToSubmitQuestion: Bool)
 	case errorRefreshingState
 	case dismissAlert
 }
@@ -52,8 +56,14 @@ let gameViewReducer = Reducer<GameViewState, GameViewAction, GameViewEnvironment
 		.receive(on: RunLoop.main)
 		.eraseToEffect()
 
-	case .updateGameState(let gameState):
+	case .submitQuestion(let prompt, let answer):
+		// todo: implement
+		print("Submit question: \(prompt), answer: \(answer)")
+		return .none
+
+	case .updateGameState(let gameState, let userIsEligibleToSubmitQuestion):
 		state.gameState = gameState
+		state.userIsEligibleToSubmitQuestion = userIsEligibleToSubmitQuestion
 		return .none
 
 	case .errorRefreshingState:
@@ -73,6 +83,17 @@ extension AlertState where Action == GameViewAction {
 			message: TextState("Failed to refresh game state"),
 			dismissButton: .cancel(TextState("OK"), action: .send(.dismissAlert))
 		)
+	}
+}
+
+extension Asker {
+	func isUserEligibleAsker(_ user: EthereumAddress) -> Bool {
+		switch self {
+		case .specific(let address):
+			return user == address
+		case .anyone:
+			return true
+		}
 	}
 }
 
@@ -97,15 +118,24 @@ private func fetchGameState(client: GameClient) async -> GameViewAction {
 	else { return .errorRefreshingState }
 
 	if isCurrentQuestionActive {
-		return .updateGameState(.answeringQuestion(
-			prompt: prompt,
-			asker: currentAsker,
-			clues: await clues,
-			canSubmitClue: canSubmitClue
-		))
+		return .updateGameState(
+			.answeringQuestion(
+				AnsweringState(
+					prompt: prompt,
+					asker: currentAsker,
+					clues: await clues,
+					canSubmitClue: canSubmitClue
+				)
+			),
+			userIsEligibleToSubmitQuestion: false
+		)
 	} else {
 		let asker: Asker = nextAskerTimeout >= Date() ? .specific(nextAsker) : .anyone
-		return .updateGameState(.waitingForQuestion(asker: asker))
+		let isUserEligible = asker.isUserEligibleAsker(client.userAddress)
+		return .updateGameState(
+			.waitingForQuestion(asker),
+			userIsEligibleToSubmitQuestion: isUserEligible
+		)
 	}
 }
 

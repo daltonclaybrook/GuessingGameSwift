@@ -3,6 +3,10 @@ import Foundation
 import web3
 
 final class GameClient {
+	var userAddress: EthereumAddress {
+		account.address
+	}
+
 	private let account: EthereumAccount
 	private let client: EthereumClient
 
