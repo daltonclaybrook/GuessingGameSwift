@@ -190,7 +190,7 @@ private func submitGuess(answer: String, client: GameClient) async -> GameViewAc
 		// Don't submit the guess if it's wrong
 		await client.submitAnswer(answer)
 	}
-	return .guessSubmitted(isCorrect: false)
+	return .guessSubmitted(isCorrect: isCorrect)
 }
 
 private func fetchAllClues(client: GameClient) async -> [String] {
