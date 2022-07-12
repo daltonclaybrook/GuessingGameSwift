@@ -17,6 +17,7 @@ enum Asker: Equatable {
 struct AnsweringState: Equatable {
 	let prompt: String
 	let asker: EthereumAddress
+	let askerIsUser: Bool
 	let clues: [String]
 	let canSubmitClue: Bool
 }
@@ -126,6 +127,7 @@ private func fetchGameState(client: GameClient) async -> GameViewAction {
 				AnsweringState(
 					prompt: prompt,
 					asker: currentAsker,
+					askerIsUser: currentAsker == client.userAddress,
 					clues: await clues,
 					canSubmitClue: canSubmitClue
 				)
@@ -146,5 +148,7 @@ private func fetchAllClues(client: GameClient) async -> [String] {
 	async let clue1 = client.getClue(index: 0)
 	async let clue2 = client.getClue(index: 1)
 	async let clue3 = client.getClue(index: 2)
-	return await [clue1, clue2, clue3].compactMap { $0 }
+	return await [clue1, clue2, clue3]
+		.compactMap { $0 }
+		.filter { !$0.isEmpty }
 }

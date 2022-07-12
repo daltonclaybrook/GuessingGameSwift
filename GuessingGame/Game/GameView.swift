@@ -85,7 +85,49 @@ struct AnsweringView: View {
 	let answeringState: AnsweringState
 
 	var body: some View {
-		Text("todo")
+		VStack(alignment: .leading, spacing: 20) {
+
+			Text("Prompt")
+				.font(.subheadline)
+
+			Text("\"\(answeringState.prompt)\"")
+				.font(.body)
+				.italic()
+
+			Divider()
+
+			if answeringState.clues.isEmpty {
+				Text("No clues yet...")
+					.font(.subheadline)
+			} else {
+				Text("Clues")
+					.font(.subheadline)
+
+				ForEach(answeringState.clues.indices, id: \.self) { index in
+					HStack(alignment: .firstTextBaseline) {
+						Text("\(index + 1).")
+							.font(.footnote)
+						Text(answeringState.clues[index])
+							.font(.callout)
+					}
+				}
+			}
+
+			Divider()
+
+			VStack(alignment: .center) {
+				Button("Submit Guess") {
+					print("Submitting guess...")
+				}
+				.disabled(answeringState.askerIsUser)
+
+				if answeringState.askerIsUser {
+					Text("You asked this question")
+						.font(.caption)
+				}
+			}
+		}
+		.padding()
 	}
 }
 

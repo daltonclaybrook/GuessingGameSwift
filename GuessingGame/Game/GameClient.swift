@@ -33,7 +33,7 @@ final class GameClient {
 	}
 
 	func submitQuestion(prompt: String, answer: String) async {
-		guard let answerHash = makeAnswerHash(answer: answer) else {
+		guard let answerHash = Self.makeAnswerHash(answer: answer) else {
 			fatalError("Failed to make answer hash from: \(answer)")
 		}
 
@@ -134,7 +134,7 @@ final class GameClient {
 		}
 	}
 
-	private func makeAnswerHash(answer: String) -> Data? {
+	static func makeAnswerHash(answer: String) -> Data? {
 		do {
 			let encoded = try ABIEncoder.encode(answer, packed: true).bytes
 			var digest = SHA3(variant: .keccak256)
