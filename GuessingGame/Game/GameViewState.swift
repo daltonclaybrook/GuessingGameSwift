@@ -38,8 +38,11 @@ struct GameViewState: Equatable {
 enum GameViewAction: Equatable {
 	case refreshState
 	case submitQuestion(prompt: String, answer: String)
+	case submitGuess(answer: String)
 	case updateGameState(GameState, userIsEligibleToSubmitQuestion: Bool)
+	case guessSubmitted(isCorrect: Bool)
 	case errorRefreshingState
+	case errorSubmittingGuess
 	case dismissAlert
 }
 
@@ -65,13 +68,28 @@ let gameViewReducer = Reducer<GameViewState, GameViewAction, GameViewEnvironment
 		.receive(on: RunLoop.main)
 		.eraseToEffect()
 
+	case .submitGuess(let answer):
+		return Future.async {
+			await submitGuess(answer: answer, client: environment.client)
+		}
+		.receive(on: RunLoop.main)
+		.eraseToEffect()
+
 	case .updateGameState(let gameState, let userIsEligibleToSubmitQuestion):
 		state.gameState = gameState
 		state.userIsEligibleToSubmitQuestion = userIsEligibleToSubmitQuestion
 		return .none
 
+	case .guessSubmitted(let isCorrect):
+		state.alert = .guessSubmitted(isCorrect: isCorrect)
+		return Effect(value: .refreshState)
+
 	case .errorRefreshingState:
 		state.alert = .errorRefreshing
+		return .none
+
+	case .errorSubmittingGuess:
+		state.alert = .errorSubmittingGuess
 		return .none
 
 	case .dismissAlert:
@@ -85,6 +103,24 @@ extension AlertState where Action == GameViewAction {
 		AlertState(
 			title: TextState("Error"),
 			message: TextState("Failed to refresh game state"),
+			dismissButton: .cancel(TextState("OK"), action: .send(.dismissAlert))
+		)
+	}
+
+	static var errorSubmittingGuess: AlertState<GameViewAction> {
+		AlertState(
+			title: TextState("Error"),
+			message: TextState("Failed to submit guess"),
+			dismissButton: .cancel(TextState("OK"), action: .send(.dismissAlert))
+		)
+	}
+
+	static func guessSubmitted(isCorrect: Bool) -> AlertState<GameViewAction> {
+		let title = isCorrect ? "Hooray!" : "Sorry"
+		let message = isCorrect ? "Your guess is correct!" : "Your guess is incorrect"
+		return AlertState(
+			title: TextState(title),
+			message: TextState(message),
 			dismissButton: .cancel(TextState("OK"), action: .send(.dismissAlert))
 		)
 	}
@@ -142,6 +178,19 @@ private func fetchGameState(client: GameClient) async -> GameViewAction {
 			userIsEligibleToSubmitQuestion: isUserEligible
 		)
 	}
+}
+
+private func submitGuess(answer: String, client: GameClient) async -> GameViewAction {
+	let isCorrect = await client.checkAnswer(answer)
+	guard let isCorrect = isCorrect else {
+		return .errorSubmittingGuess
+	}
+
+	if isCorrect {
+		// Don't submit the guess if it's wrong
+		await client.submitAnswer(answer)
+	}
+	return .guessSubmitted(isCorrect: false)
 }
 
 private func fetchAllClues(client: GameClient) async -> [String] {

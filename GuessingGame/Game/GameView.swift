@@ -35,6 +35,7 @@ struct GameView: View {
 
 				}
 			}
+			.alert(store.scope(state: \.alert), dismiss: .dismissAlert)
 			.onAppear {
 				viewStore.send(.refreshState)
 			}
@@ -67,12 +68,14 @@ struct AskingView: View {
 				TextField("Question", text: $questionText)
 				TextField("Answer", text: $answerText)
 				Button("Submit") {
-					askingQuestion = false
 					if !questionText.isEmpty && !answerText.isEmpty {
 						viewStore.send(
 							.submitQuestion(prompt: questionText, answer: answerText)
 						)
 					}
+					askingQuestion = false
+					questionText = ""
+					answerText = ""
 				}
 			}
 			.padding()
@@ -83,6 +86,8 @@ struct AskingView: View {
 struct AnsweringView: View {
 	let viewStore: ViewStore<GameViewState, GameViewAction>
 	let answeringState: AnsweringState
+	@State var answeringQuestion: Bool = false
+	@State var answerText: String = ""
 
 	var body: some View {
 		VStack(alignment: .leading, spacing: 20) {
@@ -117,7 +122,7 @@ struct AnsweringView: View {
 
 			VStack(alignment: .center) {
 				Button("Submit Guess") {
-					print("Submitting guess...")
+					answeringQuestion = true
 				}
 				.disabled(answeringState.askerIsUser)
 
@@ -128,6 +133,21 @@ struct AnsweringView: View {
 			}
 		}
 		.padding()
+		.sheet(isPresented: $answeringQuestion) {
+			VStack(spacing: 20) {
+				TextField("Answer", text: $answerText)
+				Button("Submit") {
+					if !answerText.isEmpty {
+						viewStore.send(
+							.submitGuess(answer: answerText)
+						)
+					}
+					answeringQuestion = false
+					answerText = ""
+				}
+			}
+			.padding()
+		}
 	}
 }
 
