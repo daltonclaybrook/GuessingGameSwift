@@ -31,6 +31,7 @@ enum GameState: Equatable {
 struct GameViewState: Equatable {
 	var gameState: GameState = .unknown
 	var userIsEligibleToSubmitQuestion: Bool = false
+	var isLoading: Bool = false
 	/// Alert that is presented when non-nil
 	var alert: AlertState<GameViewAction>? = nil
 }
@@ -39,6 +40,8 @@ enum GameViewAction: Equatable {
 	case refreshState
 	case submitQuestion(prompt: String, answer: String)
 	case submitGuess(answer: String)
+	case submitClue(clue: String)
+	case setIsLoading(Bool)
 	case updateGameState(GameState, userIsEligibleToSubmitQuestion: Bool)
 	case guessSubmitted(isCorrect: Bool)
 	case errorRefreshingState
@@ -57,6 +60,8 @@ let gameViewReducer = Reducer<GameViewState, GameViewAction, GameViewEnvironment
 		return Future.async {
 			await fetchGameState(client: environment.client)
 		}
+		.prepend(.setIsLoading(true))
+		.append(.setIsLoading(false))
 		.receive(on: RunLoop.main)
 		.eraseToEffect()
 
@@ -65,6 +70,8 @@ let gameViewReducer = Reducer<GameViewState, GameViewAction, GameViewEnvironment
 			await environment.client.submitQuestion(prompt: prompt, answer: answer)
 			return .refreshState
 		}
+		.prepend(.setIsLoading(true))
+		.append(.setIsLoading(false))
 		.receive(on: RunLoop.main)
 		.eraseToEffect()
 
@@ -72,8 +79,24 @@ let gameViewReducer = Reducer<GameViewState, GameViewAction, GameViewEnvironment
 		return Future.async {
 			await submitGuess(answer: answer, client: environment.client)
 		}
+		.prepend(.setIsLoading(true))
+		.append(.setIsLoading(false))
 		.receive(on: RunLoop.main)
 		.eraseToEffect()
+
+	case .submitClue(let clue):
+		return Future.async {
+			await environment.client.submitClue(clue)
+			return .refreshState
+		}
+		.prepend(.setIsLoading(true))
+		.append(.setIsLoading(false))
+		.receive(on: RunLoop.main)
+		.eraseToEffect()
+
+	case .setIsLoading(let isLoading):
+		state.isLoading = isLoading
+		return .none
 
 	case .updateGameState(let gameState, let userIsEligibleToSubmitQuestion):
 		state.gameState = gameState

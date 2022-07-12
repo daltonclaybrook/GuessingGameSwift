@@ -48,6 +48,7 @@
 		7537623D287CEA210049F39C /* ABIResponse+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537623C287CEA210049F39C /* ABIResponse+Additions.swift */; };
 		75376240287CF1750049F39C /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7537623F287CF1750049F39C /* CryptoSwift */; };
 		75376242287D1EC20049F39C /* GasOracleFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376241287D1EC10049F39C /* GasOracleFetching.swift */; };
+		75DACFDB287DCC5B0005D651 /* AnsweringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DACFDA287DCC5B0005D651 /* AnsweringView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		7537623A287CE42F0049F39C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7537623C287CEA210049F39C /* ABIResponse+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ABIResponse+Additions.swift"; sourceTree = "<group>"; };
 		75376241287D1EC10049F39C /* GasOracleFetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GasOracleFetching.swift; sourceTree = "<group>"; };
+		75DACFDA287DCC5B0005D651 /* AnsweringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnsweringView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				753761FD287CB1AF0049F39C /* GameView.swift */,
+				75DACFDA287DCC5B0005D651 /* AnsweringView.swift */,
 				75376233287CDB2C0049F39C /* GameViewState.swift */,
 				75376231287CC5380049F39C /* GameFunctions.swift */,
 				75376238287CE3EB0049F39C /* GameClient.swift */,
@@ -353,6 +356,7 @@
 				7537620E287CB5C70049F39C /* SendViewState.swift in Sources */,
 				75376229287CB9BC0049F39C /* QRCameraViewController.swift in Sources */,
 				753761CB287BAD820049F39C /* GuessingGameApp.swift in Sources */,
+				75DACFDB287DCC5B0005D651 /* AnsweringView.swift in Sources */,
 				75376210287CB5FD0049F39C /* ConfirmationViewState.swift in Sources */,
 				75376208287CB40F0049F39C /* TokenClient.swift in Sources */,
 				7537623B287CE42F0049F39C /* Constants.swift in Sources */,

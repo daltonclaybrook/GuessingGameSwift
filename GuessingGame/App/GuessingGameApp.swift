@@ -27,7 +27,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
 		print("User address: \(wallet.address.value)")
 
 		// Testing...
-		let answer = "Apple"
+		let answer = "Mona"
 		let hash = GameClient.makeAnswerHash(answer: answer)!.toHexString()
 		print("Answer: \(answer), hash: 0x\(hash)")
 

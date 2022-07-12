@@ -27,12 +27,18 @@ struct GameView: View {
 				}
 				.navigationTitle("Guessing Game")
 				.toolbar {
-					Button {
-						viewStore.send(.refreshState)
-					} label: {
-						Image(systemName: "arrow.clockwise")
-					}
+					ToolbarItemGroup(placement: .navigationBarTrailing) {
+						if viewStore.isLoading {
+							ProgressView()
+								.progressViewStyle(.circular)
+						}
 
+						Button {
+							viewStore.send(.refreshState)
+						} label: {
+							Image(systemName: "arrow.clockwise")
+						}
+					}
 				}
 			}
 			.alert(store.scope(state: \.alert), dismiss: .dismissAlert)
@@ -75,74 +81,6 @@ struct AskingView: View {
 					}
 					askingQuestion = false
 					questionText = ""
-					answerText = ""
-				}
-			}
-			.padding()
-		}
-	}
-}
-
-struct AnsweringView: View {
-	let viewStore: ViewStore<GameViewState, GameViewAction>
-	let answeringState: AnsweringState
-	@State var answeringQuestion: Bool = false
-	@State var answerText: String = ""
-
-	var body: some View {
-		VStack(alignment: .leading, spacing: 20) {
-
-			Text("Prompt")
-				.font(.subheadline)
-
-			Text("\"\(answeringState.prompt)\"")
-				.font(.body)
-				.italic()
-
-			Divider()
-
-			if answeringState.clues.isEmpty {
-				Text("No clues yet...")
-					.font(.subheadline)
-			} else {
-				Text("Clues")
-					.font(.subheadline)
-
-				ForEach(answeringState.clues.indices, id: \.self) { index in
-					HStack(alignment: .firstTextBaseline) {
-						Text("\(index + 1).")
-							.font(.footnote)
-						Text(answeringState.clues[index])
-							.font(.callout)
-					}
-				}
-			}
-
-			Divider()
-
-			VStack(alignment: .center) {
-				Button("Submit Guess") {
-					answeringQuestion = true
-				}
-				.disabled(answeringState.askerIsUser)
-
-				if answeringState.askerIsUser {
-					Text("You asked this question")
-						.font(.caption)
-				}
-			}
-		}
-		.padding()
-		.sheet(isPresented: $answeringQuestion) {
-			VStack(spacing: 20) {
-				TextField("Answer", text: $answerText)
-				Button("Submit") {
-					if !answerText.isEmpty {
-						viewStore.send(
-							.submitGuess(answer: answerText)
-						)
-					}
-					answeringQuestion = false
 					answerText = ""
 				}
 			}
