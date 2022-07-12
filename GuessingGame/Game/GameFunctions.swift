@@ -28,7 +28,7 @@ extension GameFunctions {
 	}
 
 	/// Get the date when the next asker times out and anyone can submit a question
-	struct NextAskerTimeoutDate {
+	struct NextAskerTimeoutDate: ABIFunction {
 		static let name = "nextAskerTimeoutDate"
 
 		var gasPrice: BigUInt?
@@ -58,7 +58,7 @@ extension GameFunctions {
 
 		// Function parameters
 		var prompt: String
-		var answerHash: Data32
+		var answerHash: Data
 
 		func encode(to encoder: ABIFunctionEncoder) throws {
 			try encoder.encode(prompt)

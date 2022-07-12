@@ -45,6 +45,8 @@
 		75376237287CDB750049F39C /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376236287CDB750049F39C /* AppState.swift */; };
 		75376239287CE3EB0049F39C /* GameClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75376238287CE3EB0049F39C /* GameClient.swift */; };
 		7537623B287CE42F0049F39C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537623A287CE42F0049F39C /* Constants.swift */; };
+		7537623D287CEA210049F39C /* ABIResponse+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537623C287CEA210049F39C /* ABIResponse+Additions.swift */; };
+		75376240287CF1750049F39C /* CryptoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7537623F287CF1750049F39C /* CryptoSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +87,7 @@
 		75376236287CDB750049F39C /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		75376238287CE3EB0049F39C /* GameClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameClient.swift; sourceTree = "<group>"; };
 		7537623A287CE42F0049F39C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7537623C287CEA210049F39C /* ABIResponse+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ABIResponse+Additions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				753761F1287CA67D0049F39C /* ComposableArchitecture in Frameworks */,
+				75376240287CF1750049F39C /* CryptoSwift in Frameworks */,
 				753761EE287CA45D0049F39C /* web3.swift in Frameworks */,
 				753761F9287CB0B90049F39C /* KeychainAccess in Frameworks */,
 			);
@@ -204,6 +208,7 @@
 				7537622F287CBBE40049F39C /* Sheet+TCA.swift */,
 				7537621E287CB7AE0049F39C /* BigInt+Additions.swift */,
 				7537621D287CB7AE0049F39C /* Future+Additions.swift */,
+				7537623C287CEA210049F39C /* ABIResponse+Additions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 				753761ED287CA45D0049F39C /* web3.swift */,
 				753761F0287CA67D0049F39C /* ComposableArchitecture */,
 				753761F8287CB0B90049F39C /* KeychainAccess */,
+				7537623F287CF1750049F39C /* CryptoSwift */,
 			);
 			productName = GuessingGame;
 			productReference = 753761C7287BAD820049F39C /* GuessingGame.app */;
@@ -293,6 +299,7 @@
 				753761EC287CA45D0049F39C /* XCRemoteSwiftPackageReference "web3" */,
 				753761EF287CA67D0049F39C /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				753761F7287CB0B90049F39C /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				7537623E287CF1750049F39C /* XCRemoteSwiftPackageReference "CryptoSwift" */,
 			);
 			productRefGroup = 753761C8287BAD820049F39C /* Products */;
 			projectDirPath = "";
@@ -331,6 +338,7 @@
 				75376220287CB7AE0049F39C /* BigInt+Additions.swift in Sources */,
 				75376228287CB9BC0049F39C /* QRCode.swift in Sources */,
 				7537622E287CBAAE0049F39C /* SendToAddressView.swift in Sources */,
+				7537623D287CEA210049F39C /* ABIResponse+Additions.swift in Sources */,
 				75376227287CB9BC0049F39C /* QRCameraView.swift in Sources */,
 				75376205287CB37A0049F39C /* SendView.swift in Sources */,
 				75376203287CB3620049F39C /* ReceiveView.swift in Sources */,
@@ -581,6 +589,14 @@
 				minimumVersion = 4.2.2;
 			};
 		};
+		7537623E287CF1750049F39C /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -598,6 +614,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 753761F7287CB0B90049F39C /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
+		};
+		7537623F287CF1750049F39C /* CryptoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7537623E287CF1750049F39C /* XCRemoteSwiftPackageReference "CryptoSwift" */;
+			productName = CryptoSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
