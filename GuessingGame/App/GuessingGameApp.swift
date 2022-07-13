@@ -43,7 +43,9 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
 		let keyStore = KeyStore()
 		let password = WalletUtility.makeRandomPassword()
 		try! keyStore.storePassword(password)
+
 		let privateKeyString = "0x5fb20f4a50f6e04d1ff1ead4256af3927e06d91853b2b7aff1d5617b37f74a86"
-		try! keyStore.storePrivateKey(key: Data(hex: privateKeyString)!)
+		let privateKey = Data(hex: privateKeyString)!
+		try! keyStore.encryptAndStorePrivateKey(key: privateKey, keystorePassword: password)
 	}
 }
